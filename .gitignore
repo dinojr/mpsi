@@ -1,0 +1,10 @@
+*.tex~
+*.log
+/#mpsi_old.cls#
+#*
+#*#
+auto/
+/exercices.sty
+/mpsi_beamer-test.cls
+/mpsi_old.cls
+/#tikz-base.tex#
