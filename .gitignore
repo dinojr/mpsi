@@ -8,3 +8,4 @@ auto/
 /mpsi_beamer-test.cls
 /mpsi_old.cls
 /#tikz-base.tex#
+*.cls~
