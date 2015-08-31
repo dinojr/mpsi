@@ -423,10 +423,14 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{fancybox}
 
+
+\setlength{\abovedisplayskip}{6pt plus 1.5pt minus 3.5pt}
+\setlength{\belowdisplayskip}{\abovedisplayskip}
+% \setlength{\abovedisplayshortskip}{0pt}
 \AtBeginDocument{%
-  \abovedisplayskip=6pt plus 1.5pt minus 3.5pt
-  \belowdisplayskip=\abovedisplayskip
-  \flushleft
+  % \abovedisplayskip=6pt plus 1.5pt minus 3.5pt
+  % \belowdisplayskip=\abovedisplayskip
+  % \flushleft
 }
 
 \renewcommand{\footrulewidth}{0.4pt}
