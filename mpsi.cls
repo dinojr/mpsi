@@ -8,8 +8,7 @@
 \RequirePackage{xkeyval}
 
 \newif\ifcours
-\courstrue
-\DeclareOptionX{cours}[true]{\courstrue}
+\DeclareOptionX{cours}[false]{\courstrue}
 
 \newif\ifDS
 \DeclareOptionX{DS}[false]{\DStrue}
