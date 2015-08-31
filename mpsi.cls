@@ -132,7 +132,7 @@
 \RequirePackage{url}
 \newcommand\@licence{sous licence \tiny\url{http://creativecommons.org/licenses/by-nc-nd/2.0/fr/}.}
 \newcommand\licence[1]{\renewcommand\@licence{#1}}
-\newcommand\@anneesco{2014-2015}
+\newcommand\@anneesco{2015-2016}
 \newcommand\anneesco[1]{\renewcommand\@anneesco{#1}}
 
 \RequirePackage{calc}
