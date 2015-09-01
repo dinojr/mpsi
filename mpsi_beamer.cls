@@ -117,6 +117,7 @@
 \uselanguage{French}
 \languagepath{French}
 \RequirePackage{skull}
+\RequirePackage{booktabs}
 \input{configuration-math.tex}
 % 
 \input{configuration-physique.tex}
