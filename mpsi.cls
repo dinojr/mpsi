@@ -539,5 +539,17 @@
 % \input{shortcut}
 % \input{chimie}
 
+% Compatibilité version antérieure
+\theoremheaderfont{\sffamily\upshape\bfseries}
+\theoremstyle{nonumberbreak}
+\theoremseparator{ :}
+% \theoremsymbol{$\bullet$}
+\theorembodyfont{\rmfamily}
+\newtheorem{exemple}{Exemple}
+\newtheorem{remarque}{Remarque}
+\theoremsymbol{\leavevmode\bfseries \sffamily \tiny Fin}
+\newtheorem{demo}{Démonstration}
+
+\newcommand{\rem}{\textbf{Remarque:}\xspace}
 \makeatother
 \endinput
