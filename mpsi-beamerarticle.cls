@@ -37,36 +37,6 @@
 \RequirePackage{pageslts}
 \AtBeginDocument{\pagenumbering{arabic}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%    Sections
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \renewcommand\section{\@startsection {section}{1}{\z@}%
-%                                     {-1.75ex \@plus -.5ex \@minus -.1ex}%
-%                                     {2.3ex \@plus.2ex}%
-%                                     {\normalfont\Large\bfseries\sffamily}}
-% \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-%                                         {-1.625ex\@plus -.5ex \@minus -.1ex}%
-%                                         {1.5ex \@plus .2ex}%
-%                                         {\normalfont\large\bfseries\sffamily}}
-% \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-%                                         {-1.625ex\@plus -.5ex \@minus -.1ex}%
-%                                         {1.5ex \@plus .2ex}%
-%                                         {\normalfont\normalsize\bfseries\sffamily}}
-
-
-\ifeleves
-% On ne veut pas les titres de section dans les notes aux élèves
-\renewcommand\section[1]{\empty}
-\renewcommand\subsection[1]{\empty}
-\renewcommand\subsubsection[1]{\empty}
-% \renewcommand\paragraph[1]{\empty} 
-
-% Il faut cependant laisser l'option pour \paragraph qui est utilisé
-% par beamerarticle pour les frames
-\renewcommand\subparagraph[1]{\empty}
-\fi
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  Variables, fonctions 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -216,7 +186,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{configuration-base.tex}
+
+\ifeleves
+% On ne veut pas les titres de section dans les notes aux élèves
+\renewcommand\section[1]{\empty}
+\renewcommand\subsection[1]{\empty}
+\renewcommand\subsubsection[1]{\empty}
+% \renewcommand\paragraph[1]{\empty} 
+
+% Il faut cependant laisser l'option pour \paragraph qui est utilisé
+% par beamerarticle pour les frames
+\renewcommand\subparagraph[1]{\empty}
+\else
 \input{configuration-sections.tex} % à inclure avant beamerarticle, conflit avec titlesec sinon
+\fi
+
 
 \RequirePackage[noamsthm]{beamerarticle}
 \RequirePackage{beamerthemempsi}
@@ -312,16 +296,16 @@
 \renewenvironment{columns}{\relax}{\relax}
 \renewenvironment{column}[1]{\begin{minipage}{#1}}{\end{minipage}}
 
-\ifeleves
-% On ne veut pas les titres de section dans les notes aux élèves
-\renewcommand\section[1]{\empty}
-\renewcommand\subsection[1]{\empty}
-\renewcommand\subsubsection[1]{\empty}
-% \renewcommand\paragraph[1]{\empty} 
+% \ifeleves
+% % On ne veut pas les titres de section dans les notes aux élèves
+% \renewcommand\section[1]{\empty}
+% \renewcommand\subsection[1]{\empty}
+% \renewcommand\subsubsection[1]{\empty}
+% % \renewcommand\paragraph[1]{\empty} 
 
-% Il faut cependant laisser l'option pour \paragraph qui est utilisé
-% par beamerarticle pour les frames
-\renewcommand\subparagraph[1]{\empty}
-\fi
+% % Il faut cependant laisser l'option pour \paragraph qui est utilisé
+% % par beamerarticle pour les frames
+% \renewcommand\subparagraph[1]{\empty}
+% \fi
 \makeatother
 \endinput
