@@ -9,6 +9,9 @@
 \newif\ifTikz
 \DeclareOptionX{Tikz}[true]{\Tikztrue}
 
+\newif\ifAnimate
+\DeclareOptionX{Animate}[false]{\Animatetrue}
+
 \ifPstricks
    \PassOptionsToClass{pspicture=true}{standalone}
    \Tikzfalse
@@ -18,7 +21,9 @@
    \PassOptionsToClass{tikz=true}{standalone}
 \fi
 
-
+\ifAnimate
+    \PassOptionsToClass{multi=animateinline}{standalone}
+\fi
 
 \DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{standalone}}
 
@@ -68,8 +73,9 @@
   \RequirePackage{pstricks,pstricks-add,pst-coil}
 \fi
 
+\ifAnimate
 \RequirePackage{animate}
-
+\fi
 
 \input{chimie}
 
