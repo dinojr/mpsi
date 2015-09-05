@@ -201,6 +201,7 @@
 \input{configuration-sections.tex} % à inclure avant beamerarticle, conflit avec titlesec sinon
 \fi
 
+\input{configuration-tikz-beamerarticle.tex}
 
 \RequirePackage[noamsthm]{beamerarticle}
 \RequirePackage{beamerthemempsi}
