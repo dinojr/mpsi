@@ -75,3 +75,12 @@
     axis lines = box,
        }
 }
+
+\pgfplotsset{every axis plot/.append style = {thick},
+             every axis plot post/.append style = {mark = none},}
+
+\pgfplotsset{points de mesure/.style= {%
+                    every axis plot post/.append style = {%
+                    mark = +,     
+                    only marks,
+    }}}
