@@ -80,6 +80,20 @@
 \RequirePackage[framemethod=TikZ,xcolor]{mdframed}
 \newmdenv[roundcorner=5pt,backgroundcolor=gray!30,skipabove=5pt]{important}
 
+\theoremheaderfont{\sffamily\upshape\bfseries}
+\theoremstyle{nonumberbreak}
+\theoremseparator{ :}
+\theorembodyfont{\itshape}
+\newtheorem{protocole}{Protocole}
+\newtheorem{exploitation}{Exploitation}
+\newtheorem{interpretation}{Interprétation}
+\newtheorem{manip}{Manipulations}
+\newtheorem{materiel}{Matériel}
+\newtheorem{question}{Questions}
+
+\theorembodyfont{\rmfamily}
+\newtheorem{objectif}{Objectifs}
+
 \fi
 
 \ifDS
