@@ -155,6 +155,16 @@
 {\begin{actionenv}#1\begin{originalConsequence}}
 {\end{originalConsequence}\end{actionenv}}
 
+\renewtheoremstyle{nonumberbreak}%
+% {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+%         ##1\ ##2\theorem@separator}\hbox{\strut}}}]}%
+% {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+%         ##1\ ##2 : ##3\theorem@separator}\hbox{\strut}}}]}
+{\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+        ##1\ \theorem@separator}\hbox{\strut}}}]}%
+{\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+        ##1\ : ##3\theorem@separator}\hbox{\strut}}}]}%
+
 \theoremstyle{nonumberbreak}
 \theoremheaderfont{\sffamily\upshape\bfseries}
 \theorembodyfont{\rmfamily}
