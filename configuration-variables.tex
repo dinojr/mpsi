@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  Variables, fonctions 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\@classe{MPSI2}
+\newcommand\classe[1]{\renewcommand\@classe{#1}}
+\newcommand\@lycee{Louis le Grand}
+\newcommand\lycee[1]{\renewcommand\@lycee{#1}}
+\newcommand\@auteur{Julien Cubizolles}
+\newcommand\auteur[1]{\renewcommand\@auteur{#1}}
+\newcommand\@titre{Mettre un titre}
+\newcommand\titre[1]{\renewcommand\@titre{#1}}
+\RequirePackage{url}
+\newcommand\@licence{sous licence \tiny\url{http://creativecommons.org/licenses/by-nc-nd/2.0/fr/}.}
+\newcommand\licence[1]{\renewcommand\@licence{#1}}
+\newcommand\@anneesco{2015-2016}
+\newcommand\anneesco[1]{\renewcommand\@anneesco{#1}}
+
+\RequirePackage{calc}
+\newcounter{hours}
+\newcounter{minutes}
+\newcommand{\printtime}{%
+  \setcounter{hours}{\time/60}%
+  \setcounter{minutes}{\time-(\value{hours}*60)}
+  \thehours h \theminutes min}
+
+\newcommand{\mois}{%
+    \ifcase\month
+        \or janvier%
+        \or février%
+        \or mars%
+        \or avril%
+        \or mai%
+        \or juin%
+        \or juillet%
+        \or août%
+        \or septembre%
+        \or octobre%
+        \or novembre%
+        \or décembre%
+    \fi
+}
+\newcommand{\aujourdhui}{\the\day~\mois~\the\year}
+%\newcommand{\timestamp}{\aujourdhui, à \printtime}
+\newcommand{\timestamp}{\aujourdhui}
+\newcommand{\@jour}{\aujourdhui}
+\newcommand{\jour}[1]{\renewcommand{\@jour}{#1}}
+\newcommand{\@pourle}{\aujourdhui}
+\newcommand{\pourle}[1]{\renewcommand{\@pourle}{#1}}
+\newcommand{\makepourle}{Pour le \@pourle}
+
+\renewcommand{\thefootnote}{\roman{footnote}}
+
+\def\maketitle{%
+  \par
+  \begingroup
+  \if@twocolumn
+  \twocolumn[\@maketitle]
+  \else \newpage
+  \global\@topnum\z@ 
+  \@maketitle
+  \fi
+  \endgroup
+  \setcounter{footnote}{0}
+  \let\maketitle\relax%
+  \let\@maketitle\relax%
+}
+
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em 
+  \begin{center}
+    {\LARGE \textsf{\textbf{ \@title}} \par} % Changer ici pour le style de fonte
+  \end{center}
+  \par
+  \vskip 1.5em
+}
