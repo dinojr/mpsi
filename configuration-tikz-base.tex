@@ -29,6 +29,11 @@
 \pgfdeclarelayer{points}
 \pgfsetlayers{background,main,foreground,points}
 
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+
 \tikzset{
   grid with coordinates/.style={
     to path={%
