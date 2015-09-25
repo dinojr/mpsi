@@ -156,6 +156,11 @@
 
 \theorembodyfont{\rmfamily}
 
+\mdfdefinestyle{mpsiframe}{nobreak,roundcorner=5pt,backgroundcolor=gray!30,skipabove=\baselineskip,skipbelow=\baselineskip,outerlinewidth=2pt,backgroundcolor=gray!10}
+
+\newtheorem{loi}{Loi}
+\surroundwithmdframed[style=mpsiframe]{Loi}
+
 \ifCls@mpsi@colonne
 \theoremheaderfont{\sffamily\upshape\bfseries\large}
 \else \theoremheaderfont{\Large \sffamily\upshape\bfseries}
