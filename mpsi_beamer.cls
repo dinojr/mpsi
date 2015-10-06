@@ -120,6 +120,8 @@
 \languagepath{French}
 \RequirePackage{skull}
 \RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{marvosym}
 \input{configuration-math.tex}
 % 
 \input{configuration-physique.tex}

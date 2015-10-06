@@ -62,6 +62,7 @@
 \RequirePackage{framed}
 
 \RequirePackage[hyperref,framed,thmmarks]{ntheorem}
+\RequirePackage[framemethod=TikZ,xcolor]{mdframed}
 
 \ifTP
 % \renewcommand\section{\@startsection {section}{1}{\z@}%
@@ -77,7 +78,7 @@
 %                                         {1.5ex \@plus .2ex}%
 %                                         {\normalfont\normalsize\bfseries\sffamily}}
 
-\RequirePackage[framemethod=TikZ,xcolor]{mdframed}
+
 \newmdenv[roundcorner=5pt,backgroundcolor=gray!30,skipabove=5pt]{important}
 
 \theoremheaderfont{\sffamily\upshape\bfseries}
