@@ -45,34 +45,37 @@
 
 \pgfplotsset{%
   courbe coin/.style = {%
-    every axis y label/.append style=      
-      {at={(axis description cs:-0.1,.5)}},
-    every axis x label/.append style=
-       {at={(axis description cs:1,.1)}},
     axis x line = bottom,
     axis y line = left,
+    near ticklabel align=inside,
+    every axis y label/.append style=      
+      {at={(ticklabel cs:0.5)},anchor=near yticklabel},
+    every axis x label/.append style=
+       {at={(ticklabel cs:1)},anchor = near xticklabel, },
     axis line style={-Latex[round]}
        }
 }
 
 \pgfplotsset{%
   courbe centre/.style = {%
-    every axis y label/.append style=      
-      {at={(axis description cs:0.1,1)}},
-    every axis x label/.append style=
-       {at={(axis description cs:1,.1)}},
     axis lines=center,
+    near ticklabel align=center,
+    every axis y label/.append style=      
+      {% at={(axis description cs:0.5,1)}, 
+      anchor=south},
+    every axis x label/.append style=
+       {at={(ticklabel cs:1)}, anchor=near xticklabel},
     axis line style={-Latex[round]}
        }
 }
 
 \pgfplotsset{%
+  axis lines = box,       
   courbe boite/.style = {%
     every axis y label/.append style=      
-      {at={(axis description cs:-0.1,.5)}},
+      {at={(ticklabel cs:.5)},anchor = near yticklabel},
     every axis x label/.append style=
-       {at={(axis description cs:.5,-.1)}},
-    axis lines = box,
+       {at={(ticklabel cs:.5)}, anchor = near xticklabel},
        }
 }
 
