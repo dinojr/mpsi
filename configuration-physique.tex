@@ -14,6 +14,17 @@
 \protected\def\EnergieMecaniqueSys#1#2{\mathcal{E}_{m,\Referentiel{#2}}(\mathcal
   #1)}
 
+\protected\def\Puissance{%
+  \mathcal{P}}
+\protected\def\PuissanceR#1#2{%
+  \Puissance^{#1}_{\text{reçu par #2}}}
+\protected\def\PuissanceF#1#2{%
+  \Puissance^{#1}_{\text{fournie par #2}}}
+\protected\def\PuissanceInt{%
+  \Puissance_{\mathrm{int}}}
+\protected\def\PuissanceExt{%
+  \Puissance_{\mathrm{ext}}}
+
 \def\EpotEffective{\mathcal{E}_\text{eff}}
 
 \protected\def\Epot{\@ifnextchar[{\Epot@ii}{\Epot@i}}
@@ -198,3 +209,5 @@
 \def\Trav@i*{\@ifnextchar[{\Trav@k}{\Trav@kk}}
 \def\Trav@k[#1]#2#3{\underset{#3}{W_#1}(#2)}
 \def\Trav@kk#1#2{\underset{#2}{W}(#1)}
+
+\def\bouton#1{\textbf{\texttt{#1}}}
