@@ -50,11 +50,11 @@
   courbe coin/.style = {%
     axis x line = bottom,
     axis y line = left,
-    near ticklabel align=inside,
+    near ticklabel align=center,
     every axis y label/.append style=      
       {at={(ticklabel cs:0.5)},anchor=near yticklabel},
     every axis x label/.append style=
-       {at={(ticklabel cs:1)},anchor = near xticklabel, },
+       {at={(axis description cs:1,0)},anchor = south west},
     axis line style={-Latex[round]}
        }
 }
