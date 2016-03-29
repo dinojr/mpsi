@@ -250,6 +250,8 @@
 
 \@addtoreset{section}{probleme}
 \@addtoreset{section}{solprob}
+\@addtoreset{section}{exo}
+\@addtoreset{section}{solexo}
 
 %%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%% Les réponses
