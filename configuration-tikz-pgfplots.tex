@@ -82,6 +82,27 @@
        }
 }
 
+\pgfplotsset{%
+   IsothermesAndrews/.style={
+     axis lines = box,
+     legend style={at={(axis description cs:.95,.95)},anchor=north east},
+     xlabel = $v(\si{\meter\cubed\per\kilo\gram})$,
+     ylabel = $P(\si{\bar})$,
+     minor x tick num=3,
+     minor y tick num=4, 
+     xtick = {0,.002,...,.01},
+     ytick = {0,50,...,200},
+     major grid style={very thin},
+     minor grid style={thin},
+     grid=both,
+     every axis plot/.append style={
+           unbounded coords=jump,
+           draw,
+           mark = none,
+     }
+  }
+}
+
 % \pgfplotsset{every axis plot/.append style = {thick},
 %              every axis plot/.append style = {mark = none},}
 
