@@ -92,9 +92,6 @@
   locale = FR,
   inter-unit-separator = \ensuremath{{} \cdot {}},
   output-decimal-marker = {,},
-  scientific-notation=true,
-  round-mode=figures,
-  round-precision= 3,        
   exponent-product = \ensuremath{{} \cdot {}},
   group-four-digits = false,
   per-mode = reciprocal,
@@ -104,6 +101,15 @@
 \DeclareSIUnit[number-unit-product = {}]\decade{\ensuremath{\mathrm{d\acute{e}cade}}}
 \DeclareSIUnit[number-unit-product = {}]\torr{Torr}
 \DeclareSIUnit\gauss{G}
+
+\def\valeur{%
+        \@ifnextchar[\valeur@i\valeur@ii}
+\def\valeur@i[#1]#2#3{%
+        \SI[scientific-notation=true,%
+            round-mode=figures,%
+            round-precision=#1]{#2}{#3}}
+\def\valeur@ii#1#2{%
+        \SI{#1}{#2}}
 
 \RequirePackage{esvect,esdiff}
 
