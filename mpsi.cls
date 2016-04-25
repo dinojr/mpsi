@@ -61,7 +61,7 @@
 
 \RequirePackage{framed}
 
-\RequirePackage[hyperref,framed,thmmarks]{ntheorem}
+\RequirePackage[hyperref,framed,thmmarks,amsmath]{ntheorem}
 \RequirePackage[framemethod=TikZ,xcolor]{mdframed}
 
 \ifTP
