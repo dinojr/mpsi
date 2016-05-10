@@ -77,8 +77,8 @@
 %% Pour avoir des flèches à bout rond centré sur la coordonnée
 \pgfarrowsdeclare{c*}{c*}{}
 {
-  \pgfutil@tempdima=0.4pt%
-  \advance\pgfutil@tempdima by.2\pgflinewidth%
+  \pgfutil@tempdima=0.1pt%
+  \advance\pgfutil@tempdima by.1\pgflinewidth%
   \pgfsetdash{}{+0pt}
   \pgfpathcircle{\pgfqpoint{0pt}{0pt}}{+4.5\pgfutil@tempdima}
   \pgfusepathqfillstroke
