@@ -1,0 +1,31 @@
+% Author: Julien Cubizolles
+% Public domain
+
+\newcommand*\ifStrInTF[2]{%
+  \edef\tikz@temp{{#1}{#2}}%
+  \expandafter\pgfutil@in@\tikz@temp
+  \ifpgfutil@in@\expandafter\pgfutil@firstoftwo\else\expandafter\pgfutil@secondoftwo\fi}
+\newcommand*\ifStrEmptyTF[1]{%
+  \def\tikz@temp{#1}\ifx\tikz@temp\pgfutil@empty
+    \expandafter\pgfutil@firstoftwo\else\expandafter\pgfutil@secondoftwo\fi}
+
+\def\tikz@swapanchor#1.#2\tikz@stop#3#4{#1#4#3}
+\newcommand*\tikzAddAnchor[2]{%
+  \ifStrInTF{.}{#1}{%
+    \ifStrEmptyTF{#2}
+      {\edef#1{\expandafter\tikz@swapanchor#1\tikz@stop{}{}}}
+      {\edef#1{\expandafter\tikz@swapanchor#1\tikz@stop{#2}{.}}}%
+  }{%
+    \ifStrEmptyTF{#2}{}% no true
+      {\edef#1{#1.#2}}%
+  }}
+\tikzset{
+  pin anchor/.style={tikz@pin@post/.append style={anchor=#1}},
+  label anchor/.style={tikz@label@post/.append style={anchor=#1}},
+  pin edge pin anchor/.style={
+    append after command={\pgfextra\tikzAddAnchor{\tikzlastnode}{#1}\endpgfextra}%
+  },
+  pin edge parent anchor/.style={
+    append after command={\pgfextra\tikzAddAnchor{\tikz@save@last@node}{#1}\endpgfextra}%
+  }
+}
