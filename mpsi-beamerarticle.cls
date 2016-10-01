@@ -74,10 +74,14 @@
   \fi
 }
 
+% \rhead{%
+%   \@date
+% }
+
 \rhead{%
-  \@date
-}
-  
+\@jour
+  }
+
 \RequirePackage[a4paper,margin=1.5cm,includeheadfoot,landscape,headsep=18pt,pdftex]{geometry}
 \columnseprule=.8pt
 \pagestyle{fancy}
