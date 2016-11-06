@@ -114,8 +114,7 @@
 }
 
 \RequirePackage[greek,frenchb]{babel}
-\RequirePackage[version=3]{mhchem}
-\RequirePackage[T1]{fontenc}
+
 \uselanguage{French}
 \languagepath{French}
 \RequirePackage{skull}
@@ -125,7 +124,7 @@
 \input{configuration-math.tex}
 % 
 \input{configuration-physique.tex}
-
+\input{configuration-chimie.tex}
 \input{configuration-couleurs.tex}
 
 \input{configuration-tikz-base.tex}
