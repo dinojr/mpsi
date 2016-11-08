@@ -117,6 +117,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{configuration-base.tex}
+\input{wilk-tikz-circuits}
+\input{commandes-auteur-tikz-circuits}
+\makeatletter
 
 \ifeleves
 % On ne veut pas les titres de section dans les notes aux élèves

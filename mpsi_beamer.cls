@@ -129,6 +129,9 @@
 
 \input{configuration-tikz-base.tex}
 \input{configuration-tikz-pgfplots.tex}
+\input{wilk-tikz-circuits}
+\input{commandes-auteur-tikz-circuits}
+\makeatletter
 
 \input{shortcut}
 \input{chimie}
