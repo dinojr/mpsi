@@ -64,6 +64,7 @@
 
 \ifTikz
 \input{configuration-tikz-base}
+\input{configuration-tikz-circuits}
 \input{configuration-tikz-pgfplots}
 \input{shortcut}
 \input{wilk-tikz-circuits}
