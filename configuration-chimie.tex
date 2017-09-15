@@ -1,8 +1,6 @@
 % Author: Julien Cubizolles
 % Public domain
 
-\RequirePackage[version=3]{mhchem}
-
 \RequirePackage{chemfig}
 \newcommand\setpolymerdelim[2]{\def\delimleft{#1}\def\delimright{#2}}
 
@@ -35,4 +33,5 @@
 % \makebraces(5pt,5pt){$\!\!n$}{op}{cl}
 %\makebraces(<dim up>,<dim down>){<subscript>}{<opening node name>}{<closing node name>}
 
-\RequirePackage{chemformula}
+\RequirePackage{chemmacros,chemformula,ghsystem}
+\ghssetup{language=french}
