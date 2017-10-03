@@ -38,8 +38,6 @@
 
 \RequirePackage{beamerthemempsi}
 
-\RequirePackage[frenchstyle,narrowiints,partialup]{kpfonts}
-
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
 \setbeamertemplate{footline}{sous licence
@@ -113,8 +111,6 @@
   \maketitle
 }
 
-\RequirePackage[greek,frenchb]{babel}
-
 \uselanguage{French}
 \languagepath{French}
 \RequirePackage{skull}
@@ -122,6 +118,7 @@
 \RequirePackage{multirow}
 \RequirePackage{marvosym}
 \input{configuration-math.tex}
+\input{configuration-polices.tex}
 % 
 \input{configuration-physique.tex}
 \input{configuration-chimie.tex}
