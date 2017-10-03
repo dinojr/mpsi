@@ -66,6 +66,7 @@
 \input{configuration-tikz-base}
 \input{configuration-tikz-circuits}
 \input{configuration-tikz-pgfplots}
+\input{configuration-polices}
 \input{shortcut}
 \input{wilk-tikz-circuits}
 \fi
