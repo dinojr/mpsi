@@ -3,7 +3,7 @@
 \makeatletter
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Indispensable pour pouvoir taper des accents dans ce fichier
-\RequirePackage[utf8]{inputenc}
+% \RequirePackage[utf8]{inputenc}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
