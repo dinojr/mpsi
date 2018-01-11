@@ -1,0 +1,66 @@
+
+configuration-variables.tex,0
+
+configuration-tikz-pgfplots.tex,0
+
+tikz-gears.tex,0
+
+configuration-couleurs.tex,0
+
+configuration-sections.tex,0
+
+configuration-tikz-base.tex,0
+
+configuration-paquets-communs.tex,0
+
+configuration-tikz-circuits.tex,0
+
+configuration-polices.tex,0
+
+tikz-grid.tex,0
+
+configuration-math.tex,0
+
+configuration-physique.tex,0
+
+configuration-tikz-beamerarticle.tex,0
+
+configuration-base.tex,0
+
+configuration-chimie.tex,0
+
+configuration-base-pstricks.tex,0
+
+tikz-pin-anchors.tex,0
+
+auto/configuration-base.el,0
+
+auto/mpsi_old.el,0
+
+auto/configuration-base-pstricks.el,0
+
+auto/configuration-math.el,0
+
+auto/mpsi_standalone.el,0
+
+auto/configurations-variables.el,0
+
+auto/configuration-chimie.el,0
+
+auto/configuration-physique.el,0
+
+auto/mpsi.el,0
+
+auto/tikz-pgfplots.el,0
+
+auto/mpsi-beamerarticle.el,0
+
+auto/configuration-plickers.el,0
+
+auto/configuration.el,0
+
+auto/configuration-sections.el,0
+
+auto/configuration-variables.el,0
+
+auto/mpsi_beamer.el,0
