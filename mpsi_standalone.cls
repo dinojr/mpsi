@@ -61,6 +61,7 @@
 \input{configuration-math}
 \input{configuration-couleurs}
 \input{configuration-physique}
+\input{configuration-chimie}
 \RequirePackage{luatex85} % needed for standalone, see https://tex.stackexchange.com/questions/315025/lualatex-texlive-2016-standalone-undefined-control-sequence#315027
 \ifTikz
 \input{configuration-tikz-base}
