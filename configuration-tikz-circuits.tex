@@ -2,7 +2,9 @@
 % Public domain
 \makeatletter
 \usetikzlibrary{circuits.ee.IEC}
-\def\tikzDipoleWidth{2cm}
+\newlength\tikzDipoleWidth
+\setlength{\tikzDipoleWidth}{2cm}
+% \def\tikzDipoleWidth{2cm}
 
 \tikzset{%
   voltage info/.is family,
