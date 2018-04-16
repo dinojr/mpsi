@@ -1,11 +1,20 @@
 % Author: Julien Cubizolles
 % Public domain
+\RequirePackage{iftex}
+\ifLuaTeX
+        \RequirePackage{polyglossia}
+        \setdefaultlanguage{french}
+        \RequirePackage{fontspec}
+        \setmainfont{TeX Gyre Pagella}
+        \setsansfont{Libertinus Sans}
+% \newfontfamily\Greek[Ligatures=TeX]{TeX Gyre Adventor}
 
-\RequirePackage{polyglossia}
-\setdefaultlanguage{french}
-\RequirePackage{fontspec}
-\setmainfont{TeX Gyre Pagella}
-\defaultfontfeatures{ligatures = TeX}
+        \defaultfontfeatures{ligatures = TeX}
+\fi
+% \ifPDFTeX
+% \RequirePackage[greek,frenchb]{babel}
+% \RequirePackage[frenchstyle,narrowiints,partialup,noamsmath,notextcomp]{kpfonts}
+% \fi
 % \RequirePackage{tex-gyre-math}
 % \RequirePackage{tex-gyre-math-pagella}
 
