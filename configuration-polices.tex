@@ -11,10 +11,14 @@
 
         \defaultfontfeatures{ligatures = TeX}
 \fi
-% \ifPDFTeX
-% \RequirePackage[greek,frenchb]{babel}
+
+\ifPDFTeX
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[frenchb]{babel}
 % \RequirePackage[frenchstyle,narrowiints,partialup,noamsmath,notextcomp]{kpfonts}
-% \fi
+\RequirePackage[]{fourier}
+\fi
 % \RequirePackage{tex-gyre-math}
 % \RequirePackage{tex-gyre-math-pagella}
 
