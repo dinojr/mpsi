@@ -420,7 +420,6 @@
     }
     
      \cfoot{\textsc{\thepage}/\textsc{\pageref{VeryLastPage}}}
-     
      \rfoot{\@anneesco}
      
   \else
@@ -441,10 +440,10 @@
       }
     \end{picture}
     \fi
-    \@auteur\xspace
+    {\small \@auteur\xspace}
+    {\tiny \@licence}
   }
-  \cfoot{\textsc{\thepage}/\textsc{\pageref{VeryLastPage}}}
-  \rfoot{\@licence}
+  \rfoot{\@anneesco}
   \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
