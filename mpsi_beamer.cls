@@ -118,10 +118,11 @@
 \RequirePackage{multirow}
 \RequirePackage{marvosym}
 \RequirePackage[normalem]{ulem}
-\renewcommand\uline{\bgroup\markoverwith
-  {\textcolor{red}{\rule[-0.5ex]{2pt}{0.4pt}}}\ULon}
+% \renewcommand\uline{\bgroup\markoverwith
+% {\textcolor{red}{\rule[-0.5ex]{2pt}{0.4pt}}}\ULon}
 \RequirePackage{soul}
-\sethlcolor{green}
+\sethlcolor{alertBlockColor}
+\renewcommand\uline[1]{\hl{#1}}
 \makeatletter
 \let\HL\hl
 \renewcommand\hl{%
