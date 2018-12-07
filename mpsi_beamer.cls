@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e} 
 \ProvidesClass{mpsi_beamer}[2012/08/03 Classe perso mpsi pour beamer]
-
+\makeatletter
 \RequirePackage{etex}
 
 \RequirePackage{xkeyval}
@@ -137,12 +137,8 @@
 \input{configuration-tikz-pgfplots.tex}
 \input{wilk-tikz-circuits}
 \input{commandes-auteur-tikz-circuits}
-\makeatletter
 
 \input{shortcut}
 \input{chimie}
-
 \makeatother
-
-
 \endinput
