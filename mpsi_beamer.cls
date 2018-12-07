@@ -117,20 +117,6 @@
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage{marvosym}
-\RequirePackage[normalem]{ulem}
-% \renewcommand\uline{\bgroup\markoverwith
-% {\textcolor{red}{\rule[-0.5ex]{2pt}{0.4pt}}}\ULon}
-\RequirePackage{soul}
-\sethlcolor{alertBlockColor}
-\renewcommand\uline[1]{\hl{#1}}
-\makeatletter
-\let\HL\hl
-\renewcommand\hl{%
-  \let\set@color\beamerorig@set@color
-  \let\reset@color\beamerorig@reset@color
-  \HL}
-\makeatother
-
 
 \input{configuration-math.tex}
 \input{configuration-polices.tex}
@@ -138,6 +124,14 @@
 \input{configuration-physique.tex}
 \input{configuration-chimie.tex}
 \input{configuration-couleurs.tex}
+\RequirePackage[normalem]{ulem}
+
+\renewcommand\uline{
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color
+  \bgroup\markoverwith
+  {\textcolor{LightPlum}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
+
 
 \input{configuration-tikz-base.tex}
 \input{configuration-tikz-pgfplots.tex}

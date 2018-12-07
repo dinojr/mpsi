@@ -26,6 +26,12 @@
 
 \RequirePackage[normalem]{ulem}
 
+\renewcommand\uline{
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color
+  \bgroup\markoverwith
+  {\textcolor{LightPlum}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
+
 \RequirePackage{marvosym}
 
 \RequirePackage{fp}
