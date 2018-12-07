@@ -130,7 +130,7 @@
   \let\set@color\beamerorig@set@color
   \let\reset@color\beamerorig@reset@color
   \bgroup\markoverwith
-  {\textcolor{LightPlum}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
+  {\textcolor{HighlightColor}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
 
 
 \input{configuration-tikz-base.tex}
