@@ -113,7 +113,6 @@
 
 \uselanguage{French}
 \languagepath{French}
-\RequirePackage{skull}
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage{marvosym}
