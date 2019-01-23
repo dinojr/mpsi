@@ -124,6 +124,9 @@
 \input{configuration-physique.tex}
 \input{configuration-chimie.tex}
 \input{configuration-couleurs.tex}
+\DeclareFontFamily{U}{skulls}{}
+\DeclareFontShape{U}{skulls}{m}{n}{ <-> skull }{}
+\newcommand{\skull}{\text{\usefont{U}{skulls}{m}{n}\symbol{'101}}}
 \RequirePackage[normalem]{ulem}
 
 \renewcommand\uline{
