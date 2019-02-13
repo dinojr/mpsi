@@ -1,0 +1,9 @@
+\documentclass{article}
+\RequirePackage{amsmath}
+\DeclareFontFamily{U}{skulls}{}
+\DeclareFontShape{U}{skulls}{m}{n}{ <-> skull }{}
+\newcommand{\skull}{\text{\usefont{U}{skulls}{m}{n}\symbol{'101}}}
+\begin{document}
+\skull
+A recompiler avec pdflatex pour trigger le mktextfm de la police skull
+\end{document}
