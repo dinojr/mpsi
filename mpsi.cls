@@ -4,6 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Options de classe
 %%%%%%%%%%%%%%%%%%%%%%%%%%
+\PassOptionsToPackage{force}{filehook}
 
 \RequirePackage{xkeyval}
 
