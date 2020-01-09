@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e} 
 \ProvidesClass{mpsi_beamer}[2012/08/03 Classe perso mpsi pour beamer]
-
+\PassOptionsToPackage{force}{filehook}
 \RequirePackage{etex}
 
 \RequirePackage{xkeyval}
