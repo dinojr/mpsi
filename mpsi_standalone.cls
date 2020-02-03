@@ -69,7 +69,7 @@
 \input{configuration-tikz-circuits}
 \input{configuration-tikz-pgfplots}
 \input{configuration-polices}
-\input{wilk-tikz-circuits}
+% \input{wilk-tikz-circuits}
 \fi
 
 \ifPstricks
