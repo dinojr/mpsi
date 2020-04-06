@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mpsi-beamerarticle}[]
 \PassOptionsToPackage{force}{filehook}
+\PassOptionsToPackage{dvipsnames}{xcolor}
 \makeatletter
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Indispensable pour pouvoir taper des accents dans ce fichier
