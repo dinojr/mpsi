@@ -26,6 +26,9 @@
 \newif\ifCls@mpsi@colonne
 \DeclareOptionX{colonne}[true]{\@nameuse{Cls@mpsi@colonne#1}}
 
+\newif\ifCls@mpsi@access
+\DeclareOptionX{access}[true]{\@nameuse{Cls@mpsi@access#1}}
+
 \newif\ifcorr
 \corrtrue
 \DeclareOptionX{nocorr}[false]{\corrfalse}
@@ -43,6 +46,10 @@
     \PassOptionsToClass{twocolumn,landscape}{\Cls@mpsi@class}
 \fi
 
+\ifCls@mpsi@access
+\PassOptionsToClass{onecolumn,landscape,20pt}{\Cls@mpsi@class}
+\fi    
+    
 \LoadClass[a4paper]{\Cls@mpsi@class}
 
 \input{configuration-base.tex}
@@ -186,7 +193,7 @@
 \theorempostwork{%\vskip \baselineskip
   \begin{center} 
     \begin{minipage}{.5\columnwidth}
-      \strut 
+      \strut
       \hrule
     \end{minipage}
   \end{center}
@@ -427,6 +434,26 @@
   %%%%%%%%%%%%%%%%%%%%%%
   % Si on ne demande pas le twocolumn
   %%%%%%%%%%%%%%%%%%%%%%
+  
+  \ifCls@mpsi@access
+  \RequirePackage[paperheight=30 cm,paperwidth=19cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
+  \def\minipage{%
+    \@ifnextchar[%]
+    \@iminipage
+    {\@iiiminipage c\relax[s]}}
+  \def\@iminipage[#1]{%
+    \@ifnextchar[%]
+    {\@iiminipage{#1}}%
+    {\@iiiminipage{#1}\relax[s]}}
+  \def\@iiminipage#1[#2]{%
+    \@ifnextchar[%]
+    {\@iiiminipage{#1}{#2}}%
+    {\@iiiminipage{#1}{#2}[#1]}}
+  \def\@iiiminipage#1#2[#3]#4{%
+    \par}
+  \def\endminipage{\relax}
+  
+  \else
   \RequirePackage[a4paper,margin=1cm,includeheadfoot,headsep=15pt]{geometry}
   \pagestyle{fancy}
   \lfoot{%
@@ -445,6 +472,8 @@
     {\tiny \@licence}
   }
   \rfoot{\@anneesco}
+  \fi
+  
   \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
