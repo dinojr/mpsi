@@ -410,7 +410,11 @@
      %%%%%%%%%%%%%%%%%%
     \RequirePackage[a4paper,margin=1.5cm,includeheadfoot,landscape,headsep=18pt]{geometry}
     \columnseprule=.8pt
+    \ifCls@mpsi@access
+    \pagestyle{empty}
+    \else
     \pagestyle{fancy}
+    \fi
     %%%%%%%%%%%%%%%%%%
     %% Header/footage
     %%%%%%%%%%%%%%%%%%
@@ -436,25 +440,12 @@
   %%%%%%%%%%%%%%%%%%%%%%
   
   \ifCls@mpsi@access
-  \RequirePackage[paperheight=30 cm,paperwidth=19cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
-  \def\minipage{%
-    \@ifnextchar[%]
-    \@iminipage
-    {\@iiiminipage c\relax[s]}}
-  \def\@iminipage[#1]{%
-    \@ifnextchar[%]
-    {\@iiminipage{#1}}%
-    {\@iiiminipage{#1}\relax[s]}}
-  \def\@iiminipage#1[#2]{%
-    \@ifnextchar[%]
-    {\@iiiminipage{#1}{#2}}%
-    {\@iiiminipage{#1}{#2}[#1]}}
-  \def\@iiiminipage#1#2[#3]#4{%
-    \par}
-  \def\endminipage{\relax}
-  
+  \RequirePackage[paperheight=30
+  cm,paperwidth=19cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
+  \RequirePackage{xparse}
+  \RenewDocumentEnvironment{minipage}{ o o o m }{\par}{\par}
+  \pagestyle{empty}
   \else
-  \RequirePackage[a4paper,margin=1cm,includeheadfoot,headsep=15pt]{geometry}
   \pagestyle{fancy}
   \lfoot{%
     \ifCls@mpsi@noVersion
