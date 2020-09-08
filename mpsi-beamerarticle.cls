@@ -20,9 +20,18 @@
 \newif\ifeleves
 \DeclareOptionX{eleves}[false]{\elevestrue}
 
+\newif\ifCls@mpsi@access
+\DeclareOptionX{access}[true]{\@nameuse{Cls@mpsi@access#1}}
+
 \ProcessOptionsX
 
-\LoadClass[a4paper,twocolumn,landscape]{extarticle}
+\ifCls@mpsi@access
+\PassOptionsToClass{onecolumn,portrait,20pt}{extarticle}
+\else
+\PassOptionsToClass{twocolumn,landscape,a4paper}{extarticle}
+\fi
+
+\LoadClass[]{extarticle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Options de classe - fin
@@ -83,10 +92,18 @@
 \rhead{%
 \@jour
   }
-
-\RequirePackage[a4paper,margin=1.5cm,includeheadfoot,landscape,headsep=18pt,pdftex]{geometry}
+\ifCls@mpsi@access
+  \RequirePackage[paperheight=30
+  cm,paperwidth=19cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
+  \RequirePackage{xparse}
+  \RenewDocumentEnvironment{minipage}{ o o o m }{\par}{\par}
+  \pagestyle{empty}
+  \else
+  \RequirePackage[a4paper,margin=1.5cm,includeheadfoot,landscape,headsep=18pt,pdftex]{geometry}
+  \pagestyle{fancy}
+\fi
 \columnseprule=.8pt
-\pagestyle{fancy}
+
 
 %%%%%%%%%%%%%%%%%% 
 %% Header/footage
