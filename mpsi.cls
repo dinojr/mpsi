@@ -42,14 +42,15 @@
 
 \ProcessOptionsX
 
-\ifCls@mpsi@colonne
-    \PassOptionsToClass{twocolumn,landscape}{\Cls@mpsi@class}
-\fi
-
 \ifCls@mpsi@access
 \PassOptionsToClass{onecolumn,landscape,20pt}{\Cls@mpsi@class}
-\fi    
-    
+\Cls@mpsi@colonnefalse
+\else
+\ifCls@mpsi@colonne
+\PassOptionsToClass{twocolumn,landscape}{\Cls@mpsi@class}
+\fi
+\fi
+
 \LoadClass[a4paper]{\Cls@mpsi@class}
 
 \input{configuration-base.tex}
@@ -441,11 +442,12 @@
   
   \ifCls@mpsi@access
   \RequirePackage[paperheight=30
-  cm,paperwidth=19cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
+  cm,paperwidth=30cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
   \RequirePackage{xparse}
   \RenewDocumentEnvironment{minipage}{ o o o m }{\par}{\par}
   \pagestyle{empty}
   \else
+  \RequirePackage[a4paper,margin=1cm,includeheadfoot,headsep=15pt]{geometry}
   \pagestyle{fancy}
   \lfoot{%
     \ifCls@mpsi@noVersion
