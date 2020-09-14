@@ -94,7 +94,7 @@
   }
 \ifCls@mpsi@access
   \RequirePackage[paperheight=30
-  cm,paperwidth=19cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
+  cm,paperwidth=30cm,textwidth=17cm,textheight=27cm,left=1cm,top=1cm]{geometry}
   \RequirePackage{xparse}
   \RenewDocumentEnvironment{minipage}{ o o o m }{\par}{\par}
   \pagestyle{empty}
