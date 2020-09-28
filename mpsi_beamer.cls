@@ -24,12 +24,11 @@
   \PassOptionsToClass{handout}{beamer}
 \fi
 
-\LoadClass[utf8x,smaller,mathserif]{beamer}
+\LoadClass[utf8,smaller,mathserif]{beamer}
 % utf8x plutôt que utf8 pour pouvoir taper du grec directement
+% mais c'est incompatible avec biblatex
 
-% À changer pour passer à luatex
-% \RequirePackage[T1]{fontenc}
-                          
+
 %% Attention, des conflits entre standalone et pstricks: standalone
 %% doit être chargé avant pstricks
 %% \item (LaTeX Error: Command \clipbox already defined.
