@@ -141,5 +141,6 @@
 
 \input{shortcut}
 \input{chimie}
+\input{configuration-biblio.tex}
 \makeatother
 \endinput
