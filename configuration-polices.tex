@@ -4,6 +4,8 @@
 \ifLuaTeX
         \RequirePackage{polyglossia}
         \setdefaultlanguage{french}
+        \setmainlanguage{french}
+        \setotherlanguages{greek,english}
         \RequirePackage{fontspec}
         \setmainfont{TeX Gyre Pagella}
         \setsansfont{Libertinus Sans}
@@ -15,7 +17,7 @@
 \ifPDFTeX
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[frenchb]{babel}
+\RequirePackage[frenchb,greek,english]{babel}
 % \RequirePackage[frenchstyle,narrowiints,partialup,noamsmath,notextcomp]{kpfonts}
 \RequirePackage[]{fourier}
 \fi
