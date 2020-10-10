@@ -1,0 +1,376 @@
+% Author: Christophe Jorssen
+% Public domain
+\usetikzlibrary{decorations.markings}
+\pgfdeclaredecoration{border alternate}{tick}{%
+  \state{tick}[switch if less than=+\pgfdecorationsegmentlength to final,
+               width=+\pgfdecorationsegmentlength]{%
+    \pgfpathmoveto{\pgfpointorigin}
+    \pgfpathlineto{%
+      \pgfpointpolar{%
+        \pgfdecorationsegmentangle}{+\pgfdecorationsegmentamplitude}}}
+  \state{final}{%
+    \pgfpathmoveto{\pgfpointorigin}
+    \pgfpathlineto{%
+      \pgfpointpolar{%
+        \pgfdecorationsegmentangle}{+\pgfdecorationsegmentamplitude}}
+    \pgfpathmoveto{\pgfpointdecoratedpathlast}}
+}
+
+\tikzset{%
+  LRnoarrow/.style = {thick,Couleur1,nearly opaque},
+  LR/.style 2 args = {%
+    decoration={markings,mark=at position #2 with {\arrow[fill opacity=1]{#1};}},
+    postaction={decorate},
+    LRnoarrow},
+  VirtualLR/.style = {LRnoarrow,dashed},
+  LR>/.style = {LR={>}{#1}},
+  LR>/.default = {0.5},
+  LR>>/.style = {LR={>>}{#1}},
+  LR>>/.default = {0.55},
+  LR>>>/.style = {LR={>>>}{#1}},
+  LR>>>/.default = {0.6},
+  LR>>>>/.style = {LR={>>>>}{#1}},
+  LR>>>>/.default = {0.65},
+  LR>>>>>/.style = {LR={>>>>>}{#1}},
+  LR>>>>>/.default = {0.7},
+  LR>>>>>>/.style = {LR={>>>>>>}{#1}},
+  LR>>>>>>/.default = {0.75},
+  ConvergingLens/.style = {ultra thick,<->},
+  DivergingLens/.style = {ultra thick,>-<},
+  Interface/.style = {ultra thick},
+  OpticalAxis/.style = {very thick,->},
+  Object/.style = {very thick,->},
+  VirtualObject/.style = {very thick,->,dashed},
+  Medium/.style = {fill=gray,nearly transparent},
+  PlaneMirror/.style = {%
+    ultra thick,
+    postaction = {%
+      decoration = {%
+        border alternate,
+        segment length=.25cm,
+        amplitude=.25cm,
+        angle=-135},
+      decorate,
+      arrows=-,
+      thick,
+      draw}},
+  ConvergingMirror/.style = {%
+    ultra thick,
+    arrows = half angle 90 reversed-other half angle 90 reversed,
+    postaction = {%
+      decoration = {%
+        border alternate,
+        segment length=.25cm,
+        amplitude=.25cm,
+        angle=-135},
+      decorate,
+      arrows = -,
+      thick,
+      draw}},
+  DivergingMirror/.style = {%
+    ultra thick,
+    arrows = other half angle 90 reversed-half angle 90 reversed,
+    postaction = {%
+      decoration = {%
+        border alternate,
+        segment length=.25cm,
+        amplitude=.25cm,
+        angle=-135},
+      decorate,
+      arrows=-,
+      thick,
+      draw}},
+}
+
+% New library (under development)
+\tikzset{%
+  optics/.is family,
+  optics/.cd,
+  % Thin centered optical system
+  optical system/.is family,
+  optical system/.cd,
+  image focal length/.initial = 2.5cm,
+  object focal length/.initial = -2.5cm,
+  upper height/.initial = 1.25cm,
+  lower height/.initial = -1.25cm,
+}
+
+\tikzset{%
+  % Object
+  optics/.cd,
+  object/.is family,
+  object/.cd,
+  is object for/.initial = a,
+  height/.initial = 1cm,
+}
+
+\pgfdeclareshape{thin centered optical system}{%
+  \savedmacro\upperheight{%
+    \edef\upperheight{%
+      \pgfkeysvalueof{%
+        /tikz/optics/optical system/upper height}}}
+  \savedmacro\lowerheight{%
+    \edef\lowerheight{%
+      \pgfkeysvalueof{%
+        /tikz/optics/optical system/lower height}}}
+  \savedmacro\imagefocallength{%
+    \edef\imagefocallength{%
+      \pgfkeysvalueof{%
+        /tikz/optics/optical system/image focal length}}}
+  \savedmacro\objectfocallength{%
+    \edef\objectfocallength{%
+      \pgfkeysvalueof{%
+        /tikz/optics/optical system/object focal length}}}
+  % Center
+  \savedanchor{\centerpoint}{\pgfpointorigin}
+  \anchor{center}{\centerpoint}
+  % Top
+  \savedanchor{\top}{\pgfpoint{0pt}{\upperheight}}
+  \anchor{top}{\top}
+  % Bottom
+  \savedanchor{\bottom}{\pgfpoint{0pt}{\lowerheight}}
+  \anchor{bottom}{\bottom}
+  % Principal image focus
+  \savedanchor{\principalimagefocus}{\pgfpoint{\imagefocallength}{0pt}}
+  \anchor{principal image focus}{\principalimagefocus}
+  % Image focal plane top
+  \savedanchor{\imagefocalplanetop}{\pgfpoint{\imagefocallength}{\upperheight}}
+  \anchor{image focal plane top}{\imagefocalplanetop}
+  % Image focal plane bottom
+  \savedanchor{\imagefocalplanebottom}{%
+    \pgfpoint{\imagefocallength}{\lowerheight}}
+  \anchor{image focal plane bottom}{\imagefocalplanebottom}
+  % Principal object focus
+  \savedanchor{\principalobjectfocus}{\pgfpoint{\objectfocallength}{0pt}}
+  \anchor{principal object focus}{\principalobjectfocus}
+  % Object focal plane top
+  \savedanchor{\objectfocalplanetop}{%
+    \pgfpoint{\objectfocallength}{\upperheight}}
+  \anchor{object focal plane top}{\objectfocalplanetop}
+  % Object focal plane bottom
+  \savedanchor{\objectfocalplanebottom}{%
+    \pgfpoint{\objectfocallength}{\lowerheight}}
+  \anchor{object focal plane bottom}{\objectfocalplanebottom}
+  %
+  \backgroundpath{%
+    \pgfpathmoveto{\bottom}
+    \pgfpathlineto{\top}
+    \pgfusepath{stroke}
+  }
+}
+
+\pgfdeclareshape{converging lens}{%
+  \savedmacro\upperheight{%
+    \edef\upperheight{%
+      \pgfkeysvalueof{%
+        /tikz/optics/optical system/upper height}}}
+  \savedmacro\lowerheight{%
+    \edef\lowerheight{%
+      \pgfkeysvalueof{%
+        /tikz/optics/optical system/lower height}}}
+  \savedmacro\imagefocallength{%
+    \edef\imagefocallength{%
+      \pgfkeysvalueof{%
+        /tikz/optics/optical system/image focal length}}}
+  \savedmacro\objectfocallength{%
+    \edef\objectfocallength{-(\pgfkeysvalueof{%
+        /tikz/optics/optical system/image focal length})}}
+  %
+  \inheritsavedanchors[from=thin centered optical system]
+  \inheritanchor[from=thin centered optical system]{center}
+  \inheritanchor[from=thin centered optical system]{top}
+  \inheritanchor[from=thin centered optical system]{bottom}
+  \inheritanchor[from=thin centered optical system]{principal image focus}
+  \inheritanchor[from=thin centered optical system]{image focal plane top}
+  \inheritanchor[from=thin centered optical system]{image focal plane bottom}
+  \inheritanchor[from=thin centered optical system]{principal object focus}
+  \inheritanchor[from=thin centered optical system]{object focal plane top}
+  \inheritanchor[from=thin centered optical system]{object focal plane bottom}
+  %
+  \backgroundpath{%
+    \pgfsetarrows{stealth-stealth}
+    \pgfsetlinewidth{2pt}
+    \pgfpathmoveto{\bottom}
+    \pgfpathlineto{\top}
+  }
+}
+
+\tikzset{%
+  every converging lens node/.style = {%
+    /tikz/optics/optical system/object focal length =
+    -(\pgfkeysvalueof{%
+      /tikz/optics/optical system/image focal length})}}
+
+\pgfdeclareshape{object}{%
+  \savedmacro\height{%
+    \edef\height{\pgfkeysvalueof{/tikz/optics/object/height}}}
+  \savedmacro\isobjectfor{%
+    \edef\isobjectfor{%
+      \pgfkeysvalueof{/tikz/optics/object/is object for}}}
+  \savedmacro\imagefocallength{%
+    \begingroup
+      \csname pgf@sh@ma@\isobjectfor\endcsname
+      \edef\pgf@temp{%
+        \endgroup
+        \def\noexpand\imagefocallength{\imagefocallength}}%
+      \pgf@temp}
+  % Bottom
+  \savedanchor{\centerpoint}{\pgfpointorigin}
+  \anchor{center}{\centerpoint}
+  \anchor{bottom}{\centerpoint}
+  % Top
+  \savedanchor{\top}{\pgfpoint{0pt}{\height}}
+  \anchor{top}{\top}
+  % Optical system center
+  \savedanchor{\opticalsystemcenter}{%
+    \pgfpointanchor{\isobjectfor}{center}}
+  \anchor{optical system center}{\opticalsystemcenter}
+  % Top on optical system
+  \savedanchor{\toponopticalsystem}{%
+    % This allows to define \savedanchors in terms of other saved anchors.
+    \pgf@sh@savedpoints
+    \pgfpointdiff{\top}{\opticalsystemcenter}
+    \pgf@y=\height}
+  \anchor{top on optical system}{\toponopticalsystem}
+  % Image top
+  \savedanchor{\imagetop}{%
+    % This allows to define \savedanchors in terms of other saved anchors.
+    \pgf@sh@savedpoints
+    \pgfpointintersectionoflines{%
+      \toponopticalsystem}{%
+      \pgfpointanchor{\isobjectfor}{principal image focus}}{%
+      \top}{%
+      \pgfpointanchor{\isobjectfor}{center}}}
+  \anchor{image top}{\imagetop}
+  % Image bottom
+  \savedanchor{\imagebottom}{%
+    % This allows to define \savedanchors in terms of other saved anchors.
+    \pgf@sh@savedpoints
+    \imagetop
+    \pgf@y=0pt
+  }
+  \anchor{image bottom}{\imagebottom}
+  % Image top on optical system
+  \savedanchor{\imagetoponopticalsystem}{%
+    % This allows to define \savedanchors in terms of other saved anchors.
+    \pgf@sh@savedpoints
+    \pgfpointanchor{\isobjectfor}{center}
+    \pgf@xa=\the\pgf@x
+    \imagetop
+    \pgf@x=\the\pgf@xa}
+  \anchor{image top on optical system}{\imagetoponopticalsystem}
+  %
+  \savedmacro\isimagevirtual{%
+    \begingroup
+    \pgf@sh@savedpoints
+    \opticalsystemcenter
+    \pgf@xa=-\the\pgf@x
+    \imagetop
+    \advance\pgf@xa by\pgf@x
+    \edef\pgf@temp{%
+      \endgroup
+      \ifdim\pgf@xa<0pt
+        \def\noexpand\isimagevirtual{1}%
+      \else
+        \def\noexpand\isimagevirtual{0}%
+      \fi}
+    \pgf@temp}
+  %
+  \savedmacro\isobjectvirtual{%
+    \begingroup
+    \pgf@sh@savedpoints
+    \opticalsystemcenter
+    \pgf@xa=-\the\pgf@x
+    \top
+    \advance\pgf@xa by\pgf@x
+    \edef\pgf@temp{%
+      \endgroup
+      \ifdim\pgf@xa<0pt
+        \def\noexpand\isobjectvirtual{0}%
+      \else
+        \def\noexpand\isobjectvirtual{1}%
+      \fi}
+    \pgf@temp}
+  %
+  \savedmacro\imageheight{%
+    \begingroup
+    \pgf@sh@savedpoints
+    \imagetop
+    \pgf@ya=\the\pgf@y
+    \imagebottom
+    \advance\pgf@ya by-\pgf@y
+    \edef\pgf@temp{%
+      \endgroup
+      \def\noexpand\imageheight{\the\pgf@ya}}
+    \pgf@temp}
+  %
+  \backgroundpath{%
+    \expandafter\xdef\csname pgf@sh@optics@isobjectfor@\pgf@node@name\endcsname{%
+      \isobjectfor}%
+    \expandafter\xdef\csname pgf@sh@optics@isimagevirtual@\pgf@node@name\endcsname{%
+      \isimagevirtual}%
+    \expandafter\xdef\csname pgf@sh@optics@isobjectvirtual@\pgf@node@name\endcsname{%
+      \isobjectvirtual}%
+    \expandafter\xdef\csname pgf@sh@optics@imageheight@\pgf@node@name\endcsname{%
+      \imageheight}%
+    \pgfsetarrows{-stealth}
+    \pgfsetlinewidth{1pt}
+    \pgfpathmoveto{\centerpoint}
+    \pgfpathlineto{\top}
+  }
+}
+
+\tikzset{%
+  LR through center/.style args = {#1 with #2}{%
+    insert path = {%
+      \pgfextra{%
+        \pgfinterruptpath
+          \draw[LR#2] (#1.top) -- (#1.optical system center);
+          \draw[LR#2] (#1.optical system center) -- (#1.image top);
+        \endpgfinterruptpath
+      }
+    }
+  },
+  LR through image focus/.style args = {#1 with #2}{%
+    % Il faut distinguer les cas ou B' est avant/après F' pour savoir
+    % jusqu'ou on va.
+    insert path = {%
+      \pgfextra{%
+        \pgfinterruptpath
+          \expandafter\ifnum\csname pgf@sh@optics@isimagevirtual@#1\endcsname>0\relax
+          % The image is virtual
+            \expandafter\ifnum\csname pgf@sh@optics@isobjectvirtual@#1\endcsname>0\relax
+            % The object is virtual
+              \draw[LR#2] (#1.top) -- (#1.optical system center);
+              \draw[LR#2] (#1.optical system center) -- (#1.image top);
+            \else
+            % The object is real
+              \draw[LR#2] (#1.top) -- (#1.optical system center);
+              \draw[LR#2] (#1.optical system center) -- (#1.image top);
+            \fi
+          \else
+          % The image is real
+            \expandafter\ifnum\csname pgf@sh@optics@isobjectvirtual@#1\endcsname>0\relax
+            % The object is virtual
+              \draw[LR#2] (#1.top) -- (#1.optical system center);
+              \draw[LR#2] (#1.optical system center) -- (#1.image top);
+            \else
+            % The object is real
+              \draw[LR#2] (#1.top) -- (#1.top on optical system);
+              \draw[LR#2] (#1.top on optical system) -- 
+                          (\csname
+                          pgf@sh@optics@isobjectfor@#1\endcsname.principal
+                          image focus);
+            \fi
+          \fi
+        \endpgfinterruptpath
+      }
+    }
+  },
+}
+
+
+
+% Local Variables:
+% coding: utf-8
+% End:
