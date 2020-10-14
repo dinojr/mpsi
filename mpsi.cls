@@ -54,6 +54,9 @@
 \LoadClass[a4paper]{\Cls@mpsi@class}
 
 \input{configuration-base.tex}
+\ifCls@mpsi@access
+\tikzset{style courant/.append style = {scale=2}}
+\fi
 \input{configuration-sections.tex}
 %% Attention, des conflits entre standalone et pstricks: standalone
 %% doit être chargé avant pstricks
