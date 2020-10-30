@@ -271,5 +271,6 @@
 % % par beamerarticle pour les frames
 % \renewcommand\subparagraph[1]{\empty}
 % \fi
+\input{configuration-biblio.tex}
 \makeatother
 \endinput
