@@ -90,14 +90,14 @@
 \RequirePackage{siunitx}
 \sisetup{%
   locale = FR,
-  inter-unit-separator = \ensuremath{{} \cdot {}},
+  inter-unit-product = \ensuremath{{} \cdot {}},
   output-decimal-marker = {,},
   exponent-product = \ensuremath{{} \cdot {}},
   group-four-digits = false,
   per-mode = reciprocal,
   separate-uncertainty = false,
   multi-part-units = single,
-  round-mode=off,
+  round-mode=none,
   % round-precision=3
   }
 \DeclareSIUnit[number-unit-product = {}]\dioptrie{\ensuremath{\deltaup}}
