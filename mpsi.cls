@@ -106,6 +106,11 @@
 
 \theorembodyfont{\rmfamily}
 \newtheorem{objectif}{Objectifs}
+\newtheorem{capacites}{Capacités mises en œuvre}
+
+\RequirePackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
 
 \fi
 
