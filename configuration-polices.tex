@@ -1,25 +1,39 @@
 % Author: Julien Cubizolles
 % Public domain
 \RequirePackage{iftex}
+\RequirePackage{fourier}
+% \usepackage[p,osf,scaled=.98,space]{erewhon} % scaling by .98 not really necessary
+% \usepackage[varqu,varl]{inconsolata} % typewriter
+% \usepackage[type1,scaled=.95]{cabin} % sans serif like Gill Sans
+% \usepackage[utopia,vvarbb]{newtxmath}
 \ifLuaTeX
         \RequirePackage{polyglossia}
         \setdefaultlanguage{french}
         \setmainlanguage{french}
         \setotherlanguages{greek,english}
         \RequirePackage{fontspec}
-        \setmainfont{TeX Gyre Pagella}
-        \setsansfont{Libertinus Sans}
+        % \setmainfont{TeX Gyre Pagella}
+        % \setmainfont{TeX Gyre Bonum}
+        % \setmainfont{Erewhon}
+        % \setmainfont{TeX Gyre Schola}
+        \setmainfont{TeX Gyre Termes}
+        % \setsansfont{Libertinus Sans}
+        \setsansfont{TeX Gyre Heros}
+        % \setsansfont{TeX Gyre Adventor}
+        % \setsansfont{GilliusADF}
+        % \setsansfont{roboto}
+        \setmonofont{TeX Gyre Cursor}
 % \newfontfamily\Greek[Ligatures=TeX]{TeX Gyre Adventor}
 
         \defaultfontfeatures{ligatures = TeX}
 \fi
 
 \ifPDFTeX
-\RequirePackage[T1]{fontenc}
+% \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[frenchb,greek,english]{babel}
 % \RequirePackage[frenchstyle,narrowiints,partialup,noamsmath,notextcomp]{kpfonts}
-\RequirePackage[]{fourier}
+% \RequirePackage[]{fourier}
 \fi
 % \RequirePackage{tex-gyre-math}
 % \RequirePackage{tex-gyre-math-pagella}
