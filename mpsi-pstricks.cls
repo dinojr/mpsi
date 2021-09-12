@@ -77,7 +77,7 @@
 %                                         {1.5ex \@plus .2ex}%
 %                                         {\normalfont\normalsize\bfseries\sffamily}}
 
-\RequirePackage[framemethod=TikZ,xcolor]{mdframed}
+\RequirePackage[framemethod=PSTricks,xcolor]{mdframed}
 \newmdenv[roundcorner=5pt,backgroundcolor=gray!30,skipabove=5pt]{important}
 
 \fi
