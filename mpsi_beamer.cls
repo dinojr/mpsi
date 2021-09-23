@@ -47,7 +47,8 @@
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
 \setbeamertemplate{enumerate item}{\insertenumlabel}
-\setbeamertemplate{enumerate subitem}{\insertnumlabel}
+\renewcommand{\insertsubenumlabel}{\alph{enumii}}
+\setbeamertemplate{enumerate subitem}{\insertsubenumlabel}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
