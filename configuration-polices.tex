@@ -45,3 +45,8 @@
 % Main en train d'écrire U+270D
 
 
+\DeclareFontFamily{U}{skulls}{}
+\DeclareFontShape{U}{skulls}{m}{n}{ <-> skull }{}
+\newcommand{\skull}{\text{\usefont{U}{skulls}{m}{n}\symbol{'101}}}
+\newcommand{\jcskull}{\mbox{% \color{red}
+    \Large\skull}\xspace}
