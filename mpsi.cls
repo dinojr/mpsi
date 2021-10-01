@@ -20,6 +20,9 @@
 \newif\ifexos
 \DeclareOptionX{exos}[false]{\exostrue}
 
+\newif\ifpython
+\DeclareOptionX{python}[false]{\pythontrue}
+
 \newif\ifTP
 \DeclareOptionX{TP}[false]{\TPtrue}
 
@@ -418,6 +421,9 @@
      % Si on demande le twocolumn
      %%%%%%%%%%%%%%%%%%
     \RequirePackage[a4paper,margin=1.5cm,includeheadfoot,landscape,headsep=18pt]{geometry}
+    \ifpython
+    \setlength{\columnsep}{40pt}
+    \fi
     \columnseprule=.8pt
     \ifCls@mpsi@access
     \pagestyle{empty}
