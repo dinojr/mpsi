@@ -487,7 +487,12 @@
 %%%%%%%  Géométrie - fin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\ifpython
+  \RequirePackage{minted}
+  \setminted[ipython]{frame=lines,fontsize=\scriptsize,linenos,breaklines}
+  \setminted[python]{frame=lines,fontsize=\scriptsize,linenos,breaklines}
+\fi
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Packages nécessaires
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
