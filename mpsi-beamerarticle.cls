@@ -90,7 +90,7 @@
 % }
 
 \rhead{%
-\@jour
+\@date
   }
 \ifCls@mpsi@access
   \RequirePackage[paperheight=30
