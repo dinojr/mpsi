@@ -11,6 +11,10 @@
         \setdefaultlanguage{french}
         \setmainlanguage{french}
         \setotherlanguages{greek,english}
+
+        \setotherlanguage[mathfunctions=false]{russian}
+        % pour ne pas avoir de conflit avec chemformula
+
         \RequirePackage{fontspec}
         % \setmainfont{TeX Gyre Pagella}
         % \setmainfont{TeX Gyre Bonum}
@@ -23,8 +27,9 @@
         % \setsansfont{GilliusADF}
         % \setsansfont{roboto}
         \setmonofont{TeX Gyre Cursor}
-% \newfontfamily\Greek[Ligatures=TeX]{TeX Gyre Adventor}
-
+        \newfontfamily\Greek[Ligatures=TeX]{TeX Gyre Adventor}
+        % \newfontfamily\russianfont[Script=Cyrillic]{Linux Libertine O}
+        \newfontfamily\russianfont[Script=Cyrillic]{libertinusserifdisplay-regular.otf}
         \defaultfontfeatures{ligatures = TeX}
 \fi
 
