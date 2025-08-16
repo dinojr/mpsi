@@ -257,8 +257,13 @@
 %%%% Environnement - fin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\renewenvironment{columns}{\relax}{\relax}
-\renewenvironment{column}[1]{\begin{minipage}{#1}}{\end{minipage}}
+% \renewenvironment{columns}{\relax}{\relax}
+% \renewenvironment{column}[1]{\begin{minipage}{#1}}{\end{minipage}}
+
+
+\mode<article>{\renewenvironment<>{beamer@columnenv}[2][]{ \begin{minipage}{#2}}{\end{minipage}}
+\let\endcolumn\endbeamer@columnenv}
+% d'après https://github.com/josephwright/beamer/issues/766
 
 % \ifeleves
 % % On ne veut pas les titres de section dans les notes aux élèves
