@@ -1,7 +1,7 @@
 % Author: Christophe Jorssen
 % Public domain
 \makeatletter
-\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{circuits.ee.IEC,shapes.gates.ee}
 \newlength\tikzDipoleWidth
 \setlength{\tikzDipoleWidth}{2cm}
 % \def\tikzDipoleWidth{2cm}
@@ -608,6 +608,45 @@
 		\endpgfscope
 	  }
 	}
+
+\pgfdeclareshape{neon lamp shape}
+{
+    \inheritsavedanchors[from=circle ee]
+    \inheritanchor[from=circle ee]{center}
+    \inheritanchor[from=circle ee]{north}
+    \inheritanchor[from=circle ee]{south}
+    \inheritanchor[from=circle ee]{east}
+    \inheritanchor[from=circle ee]{west}
+    \inheritanchor[from=circle ee]{north east}
+    \inheritanchor[from=circle ee]{north west}
+    \inheritanchor[from=circle ee]{south east}
+    \inheritanchor[from=circle ee]{south west}
+    \inheritanchor[from=circle ee]{input}
+    \inheritanchor[from=circle ee]{output}
+    \inheritanchorborder[from=circle ee]
+
+    \backgroundpath{
+        \pgf@process{\radius}
+        \pgfutil@tempdima=\radius
+
+        \pgfpathcircle{\centerpoint}{\pgfutil@tempdima}
+
+        \pgfpathmoveto{\pgfpoint{-\pgfutil@tempdima}{0pt}}
+        \pgfpathlineto{\pgfpoint{-0.2\pgfutil@tempdima}{0pt}}
+        \pgfpathmoveto{\pgfpoint{-0.2\pgfutil@tempdima}{0.7\pgfutil@tempdima}}
+        \pgfpathlineto{\pgfpoint{-0.2\pgfutil@tempdima}{-0.7\pgfutil@tempdima}}
+
+        \pgfpathmoveto{\pgfpoint{\pgfutil@tempdima}{0pt}}
+        \pgfpathlineto{\pgfpoint{0.2\pgfutil@tempdima}{0pt}}
+        \pgfpathmoveto{\pgfpoint{0.2\pgfutil@tempdima}{0.7\pgfutil@tempdima}}
+        \pgfpathlineto{\pgfpoint{0.2\pgfutil@tempdima}{-0.7\pgfutil@tempdima}}
+        \pgfusepath{stroke}
+
+        \pgfpathcircle{\pgfqpoint{-0.4\pgfutil@tempdima}{-0.55\pgfutil@tempdima}}{.075\pgfutil@tempdima}
+        \pgfusepath{fill}
+    }
+}
+
 
 \makeatother
 % Local Variables:
