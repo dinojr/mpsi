@@ -446,7 +446,8 @@
       \@auteur,\xspace \@licence
     }
     
-     \cfoot{\textsc{\thepage}/\textsc{\pageref{VeryLastPage}}}
+    % \cfoot{\textsc{\thepage}/\textsc{\pageref{VeryLastPage}}}
+    \cfoot{\textsc{\thepage}/\textsc{\PreviousTotalPages}}
      \rfoot{\@anneesco}
      
   \else
