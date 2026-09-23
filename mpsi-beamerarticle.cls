@@ -129,7 +129,7 @@
 %%%%%%%  Géométrie - fin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\PassOptionsToPackage{override,dvipsnames}{xcolor} % pour le chargement de xcolor par beamerarticle
+\PassOptionsToPackage{dvipsnames}{xcolor} % pour le chargement de xcolor par beamerarticle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Environnements
